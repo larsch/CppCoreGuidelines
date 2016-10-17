@@ -8495,14 +8495,14 @@ Any type (including primary template or specialization) that overloads unary `*`
 ##### Example
 
     // use Boost's intrusive_ptr
-    #include<boost/intrusive_ptr.hpp>
+    #include <boost/intrusive_ptr.hpp>
     void f(boost::intrusive_ptr<widget> p)  // error under rule 'sharedptrparam'
     {
         p->foo();
     }
 
     // use Microsoft's CComPtr
-    #include<atlbase.h>
+    #include <atlbase.h>
     void f(CComPtr<widget> p)               // error under rule 'sharedptrparam'
     {
         p->foo();
@@ -9813,7 +9813,7 @@ Requires messy cast-and-macro-laden code to get working right.
 
 ##### Example
 
-    #include<cstdarg>
+    #include <cstdarg>
 
     // "severity" followed by a zero-terminated list of char*s; write the C-style strings to cerr
     void error(int severity ...)
@@ -9853,7 +9853,7 @@ This is basically the way `printf` is implemented.
 ##### Enforcement
 
 * Flag definitions of C-style variadic functions.
-* Flag `#include<cstdarg>` and `#include<stdarg.h>`
+* Flag `#include <cstdarg>` and `#include <stdarg.h>`
 
 ## ES.stmt: Statements
 
@@ -16115,7 +16115,7 @@ Your IDE (if you use one) may have strong opinions about suffices.
     int a;   // a definition
     void foo() { ++a; }
 
-`#include<foo.h>` twice in a program and you get a linker error for two one-definition-rule violations.
+`#include <foo.h>` twice in a program and you get a linker error for two one-definition-rule violations.
 
 ##### Enforcement
 
@@ -16137,11 +16137,11 @@ Including entities subject to the one-definition rule leads to linkage errors.
     }
 
     // file1.cpp:
-    #include<file.h>
+    #include <file.h>
     // ... more ...
 
      // file2.cpp:
-    #include<file.h>
+    #include <file.h>
     // ... more ...
 
 Linking `file1.cpp` and `file2.cpp` will give two linker errors.
@@ -16193,20 +16193,20 @@ Minimize context dependencies and increase readability.
 
 ##### Example
 
-    #include<vector>
-    #include<algorithm>
-    #include<string>
+    #include <vector>
+    #include <algorithm>
+    #include <string>
 
     // ... my code here ...
 
 ##### Example, bad
 
-    #include<vector>
+    #include <vector>
 
     // ... my code here ...
 
-    #include<algorithm>
-    #include<string>
+    #include <algorithm>
+    #include <string>
 
 ##### Note
 
@@ -16256,7 +16256,7 @@ The errors will not be caught until link time for a program calling `bar` or `fo
     int foobar(int);
 
     // foo.cpp:
-    #include<foo.h>
+    #include <foo.h>
 
     void foo(int) { /* ... */ }
     int bar(double) { /* ... */ }
@@ -18039,7 +18039,7 @@ Too much space makes the text larger and distracts.
 
 ##### Example
 
-    #include<map>
+    #include <map>
 
     int main(int argc, char* argv[])
     {
